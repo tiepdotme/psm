@@ -1,0 +1,232 @@
+/*
+
+  Text: customisable starter pack
+  …uses the responsiveScale settings from `typography-scale`
+
+  Utils
+
+*/
+
+.text-gray {
+  color: theme(colors.gray.500);
+}
+.text-gray-dark {
+  color: theme(colors.gray.600);
+}
+
+.Text-button {
+  transform: translate(-0.025em, -0.04em) !important;
+}
+
+.Text-divider {
+  @apply mx-1 font-light text-gray-500 inline-block;
+  transform: translateY(-0.1em);
+}
+
+/*
+
+  Text sizes
+
+*/
+
+.Text-xs {
+  font-size: calc(theme(fontSize.xs) * var(--text-ratio));
+}
+
+.Text-sm {
+  @apply tracking-normal;
+  font-size: calc(theme(fontSize.sm) * var(--text-ratio));
+}
+
+.Text-base {
+  font-size: calc(theme(fontSize.base) * var(--text-ratio));
+}
+
+p,
+ul,
+ol {
+  @apply tracking-text;
+}
+
+p,
+ul,
+ol,
+.Button,
+.Input,
+.Markdown > *,
+.Text,
+.Text-lg {
+  font-size: calc(theme(fontSize.lg) * var(--text-ratio));
+}
+
+.Markdown > *,
+.Text,
+.Text-lg,
+.Text-xl {
+  @apply leading-snug tracking-text;
+}
+
+.Text-xl {
+  font-size: calc(theme(fontSize.xl) * var(--text-ratio));
+}
+
+/*
+
+  Nav
+
+*/
+
+.Nav-link {
+  @apply font-medium inline-flex items-center;
+  height: calc(theme(spacing.16) * var(--space-ratio));
+}
+
+/*
+
+  Meta
+
+ */
+
+.Meta,
+.Markdown blockquote p strong {
+  @apply font-sans font-medium uppercase tracking-wider;
+  font-size: calc(theme(fontSize.xxs) * var(--text-ratio));
+}
+
+.Meta--year {
+  @apply font-medium border-b;
+  margin-bottom: calc(theme(spacing.1) * var(--space-ratio));
+  padding-bottom: calc(theme(spacing.2) * var(--space-ratio));
+}
+
+/* used on projects by year archive page */
+.Year + .Year {
+  margin-top: calc(theme(spacing.8) * var(--space-ratio));
+}
+
+/*
+
+  Markdown theme
+
+*/
+
+/* not :root, for use with html page classes */
+html {
+  --markdown-text-indent: calc(theme(spacing.8) * var(--grid-ratio));
+  --markdown-quote-color: theme(colors.gray.600);
+  --markdown-quote-border-color: rgba(0, 0, 0, 0.2);
+}
+
+/* .Markdown p:not(.Alert) + p {
+  text-indent: calc(theme(spacing.10) * var(--grid-ratio));
+  text-indent: var(--markdown-text-indent);
+} */
+
+.Markdown ul,
+.Markdown ol {
+  padding-left: var(--markdown-text-indent);
+}
+
+.Markdown ul {
+  list-style: disc;
+  list-style: none;
+}
+
+.Markdown ol {
+  list-style: decimal;
+}
+
+.Markdown ul + ul {
+  list-style: disc;
+}
+
+.Markdown li {
+  @apply relative;
+}
+
+.Markdown li:before {
+  @apply absolute inline-block h-px;
+  background-color: currentColor;
+  content: "";
+  width: 1.1em;
+  top: 0.75em;
+  left: -1.75em;
+}
+
+/* doesn't work when purge is active? */
+.Markdown em {
+  @apply not-italic;
+}
+
+.Markdown strong {
+  @apply font-medium;
+}
+
+.Markdown blockquote:first-child {
+  @apply mt-0;
+}
+
+.Markdown blockquote p {
+  @apply border-l;
+  @apply py-2 pr-4;
+  color: var(--markdown-quote-color);
+  border-color: var(--markdown-quote-border-color);
+  padding-left: var(--markdown-text-indent);
+}
+
+.Markdown blockquote p p {
+  border: initial;
+  padding: initial;
+}
+
+/* same as Meta font style */
+.Markdown blockquote p strong {
+  @apply table mt-2 tracking-wider;
+  @apply not-italic;
+}
+
+.Markdown sup {
+  font-size: 66%;
+  left: 0.05em;
+}
+
+/*
+
+  Post specials
+
+*/
+
+.Markdown .mb-0 {
+  @apply mb-0 !important;
+}
+
+.Alert {
+  @apply bg-brand-neutral tracking-wide;
+  @apply px-4 py-3;
+  font-size: calc(theme(fontSize.sm) * var(--text-ratio));
+  margin-bottom: calc(theme(spacing.8) * var(--space-ratio));
+}
+
+.Markdown hr {
+  border-color: var(--markdown-quote-border-color);
+  margin-top: calc(theme(spacing.16) * var(--space-ratio));
+  margin-bottom: calc(theme(spacing.4) * var(--space-ratio));
+}
+
+.Note {
+  @apply tracking-wide;
+  color: var(--markdown-quote-color);
+  text-indent: initial !important;
+}
+.Note,
+.Note p {
+  font-size: calc(theme(fontSize.sm) * var(--text-ratio));
+}
+.Note:before {
+  /* turn off bullet dashes */
+  content: none !important;
+}
+.Note + .Note {
+  @apply mt-2;
+  /* margin-top: calc(theme(spacing.2) * var(--space-ratio)); */
+}
